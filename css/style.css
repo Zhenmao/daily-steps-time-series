@@ -1,0 +1,135 @@
+:root {
+  --color-background: hsl(47, 100%, 68%);
+  --color-text: hsl(20, 15%, 31%);
+  --color-primary: hsl(278, 100%, 33%);
+  --font-family-header: "Source Sans Pro", sans-serif;
+  --font-family-body: "Source Sans Pro", sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+  --ratio: 1.4;
+  --s-5: calc(
+    var(--s0) / var(--ratio) / var(--ratio) / var(--ratio) / var(--ratio) /
+      var(--ratio)
+  );
+  --s-4: calc(
+    var(--s0) / var(--ratio) / var(--ratio) / var(--ratio) / var(--ratio)
+  );
+  --s-3: calc(var(--s0) / var(--ratio) / var(--ratio) / var(--ratio));
+  --s-2: calc(var(--s0) / var(--ratio) / var(--ratio));
+  --s-1: calc(var(--s0) / var(--ratio));
+  --s0: 1rem;
+  --s1: calc(var(--s0) * var(--ratio));
+  --s2: calc(var(--s0) * var(--ratio) * var(--ratio));
+  --s3: calc(var(--s0) * var(--ratio) * var(--ratio) * var(--ratio));
+  --s4: calc(
+    var(--s0) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio)
+  );
+  --s5: calc(
+    var(--s0) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) *
+      var(--ratio)
+  );
+  --line-height: var(--ratio);
+  --line-height-small: calc(0.8 * var(--ratio));
+  accent-color: var(--color-primary);
+}
+
+body {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--ratio);
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: var(--line-height-small);
+  font-family: var(--font-family-header);
+  font-weight: var(--font-weight-bold);
+  hyphens: auto;
+}
+.h1,
+h1 {
+  font-size: var(--s4);
+}
+.h2,
+h2 {
+  font-size: var(--s3);
+}
+.h3,
+h3 {
+  font-size: var(--s2);
+}
+.h4,
+h4 {
+  font-size: var(--s1);
+}
+
+text {
+  font-family: var(--font-family-body);
+  font-size: var(--s-1);
+}
+
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: var(--s4);
+  margin-bottom: var(--s4);
+  padding-left: var(--s0);
+  padding-right: var(--s0);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.container > * {
+  margin-top: var(--s3);
+}
+
+.container > * > * + * {
+  margin-top: var(--s2);
+}
+
+@media screen and (min-width: 960px) {
+  .container {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: var(--s2);
+    padding-left: var(--s2);
+    padding-right: var(--s2);
+  }
+
+  .container > * {
+    margin-top: 0;
+  }
+}
+
+/* Charts shared */
+.axis .axis-title {
+  text-transform: uppercase;
+}
+
+.axis.axis--y .domain {
+  display: none;
+}
+
+/* Filtering and smoothing */
+.brush-filter-x .selection {
+  stroke: transparent;
+  fill: var(--color-primary);
+  fill-opacity: 1;
+}
+
+.moving-average-line-chart .moving-average-line {
+  stroke: var(--color-primary);
+  stroke-width: 1.5px;
+  stroke-miterlimit: 1px;
+}
+
+/* Seasonal patterns */
+.radio-input-group {
+  display: flex;
+  gap: 1rem;
+}

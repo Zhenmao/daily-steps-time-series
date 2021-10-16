@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Steps Time Series</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div></div>
+      <div class="stack">
+        <h1>Daily Steps Time Series</h1>
+        <p
+          >My Fitbit finally gave up after almost 5 years. After reading the
+          series
+          <a
+            href="https://observablehq.com/collection/@observablehq/analyzing-time-series-data"
+            >Analyzing Time Series Data</a
+          >, I really want to apply some of these techniques to my daily steps
+          data.</p
+        >
+      </div>
+      <div></div>
+      <div>
+        <h2>Filtering and Smoothing</h2>
+        <p
+          >With 1761 data points in my daily steps data, it can be difficult to
+          see the trend. To reduce the complexity, we can utilize a brush filter
+          to zoom into a date interval of interest. To reduce the noise, we can
+          use the moving average method to smooth the data.</p
+        >
+      </div>
+      <div>Brush to filter the dates</div>
+      <div>
+        <div id="brush-filter-x"></div>
+      </div>
+      <div>Daily (no smoothing)</div>
+      <div>
+        <div id="daily-moving-average"></div>
+      </div>
+      <div>Weekly moving average</div>
+      <div>
+        <div id="weekly-moving-average"></div>
+      </div>
+      <div>28-day period moving average</div>
+      <div>
+        <div id="monthly-moving-average"></div>
+      </div>
+      <div></div>
+      <div>
+        <h2>Seasonal Patterns</h2>
+        <p
+          >By creating additional date features (day of the week, weekend vs
+          weekday, month of the year, quarter of the year), we can group the
+          data points by these date features and look for any seasonal patterns
+          that's not easy to spot.
+        </p>
+        <p
+          >Each barcode chart inside the grid consists of a rectangle background
+          colored by a chosen statistic feature and lines representing one day's
+          step count.</p
+        >
+      </div>
+      <div>Horizontally grouped by</div>
+      <div>
+        <div id="x-facet"></div>
+      </div>
+      <div>Vertically grouped by</div>
+      <div>
+        <div id="y-facet"></div>
+      </div>
+      <div>Colored by</div>
+      <div>
+        <div id="color-by"></div>
+        <div id="color-legend"></div>
+      </div>
+      <div></div>
+      <div>
+        <div id="faceted-barcode-chart"></div>
+      </div>
+    </div>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/brush-filter-x.js"></script>
+    <script src="js/moving-average-line-chart.js"></script>
+    <script src="js/radio-input.js"></script>
+    <script src="js/color-legend.js"></script>
+    <script src="js/faceted-barcode-chart.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
